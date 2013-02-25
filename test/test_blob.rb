@@ -175,6 +175,9 @@ class TestBlob < Test::Unit::TestCase
     # CoffeeScript-generated JS
     # TODO
 
+    # TypeScript-generated JS
+    # TODO
+
     # PEG.js-generated parsers
     assert blob("JavaScript/parser.js").generated?
 
@@ -202,6 +205,9 @@ class TestBlob < Test::Unit::TestCase
     # C deps
     assert blob("deps/http_parser/http_parser.c").vendored?
     assert blob("deps/v8/src/v8.h").vendored?
+    
+    # Debian packaging
+    assert blob("debian/cron.d").vendored?
 
     # Prototype
     assert !blob("public/javascripts/application.js").vendored?

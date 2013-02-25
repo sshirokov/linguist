@@ -45,7 +45,7 @@ class TestLanguage < Test::Unit::TestCase
     assert_equal Lexer['S'], Language['R'].lexer
     assert_equal Lexer['Scheme'], Language['Emacs Lisp'].lexer
     assert_equal Lexer['Scheme'], Language['Nu'].lexer
-    assert_equal Lexer['Scheme'], Language['Racket'].lexer
+    assert_equal Lexer['Racket'], Language['Racket'].lexer
     assert_equal Lexer['Scheme'], Language['Scheme'].lexer
     assert_equal Lexer['Standard ML'], Language['Standard ML'].lexer
     assert_equal Lexer['TeX'], Language['TeX'].lexer
@@ -109,6 +109,7 @@ class TestLanguage < Test::Unit::TestCase
     assert_equal Language['Shell'], Language.find_by_alias('shell')
     assert_equal Language['Shell'], Language.find_by_alias('zsh')
     assert_equal Language['TeX'], Language.find_by_alias('tex')
+    assert_equal Language['TypeScript'], Language.find_by_alias('ts')
     assert_equal Language['VimL'], Language.find_by_alias('vim')
     assert_equal Language['VimL'], Language.find_by_alias('viml')
     assert_equal Language['reStructuredText'], Language.find_by_alias('rst')
@@ -186,6 +187,7 @@ class TestLanguage < Test::Unit::TestCase
     assert_equal :programming, Language['PowerShell'].type
     assert_equal :programming, Language['Python'].type
     assert_equal :programming, Language['Ruby'].type
+    assert_equal :programming, Language['TypeScript'].type
   end
 
   def test_markup
@@ -279,6 +281,7 @@ class TestLanguage < Test::Unit::TestCase
     assert_equal '#701516', Language['Ruby'].color
     assert_equal '#3581ba', Language['Python'].color
     assert_equal '#f15501', Language['JavaScript'].color
+    assert_equal '#31859c', Language['TypeScript'].color
   end
 
   def test_colors
@@ -317,6 +320,7 @@ class TestLanguage < Test::Unit::TestCase
     assert_equal '.js', Language['JavaScript'].primary_extension
     assert_equal '.coffee', Language['CoffeeScript'].primary_extension
     assert_equal '.t', Language['Turing'].primary_extension
+    assert_equal '.ts', Language['TypeScript'].primary_extension
 
     # This is a nasty requirement, but theres some code in GitHub that
     # expects this. Really want to drop this.
